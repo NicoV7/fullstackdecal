@@ -19,10 +19,40 @@
 
         /* Set a background color and text color for the body */
         body {
-            background-color: #f4f4f4;
-            color: #333;
+            background-image: url('images/ken.jpg'); /* Replace 'starmap.gif' with the path to your star map GIF */
+            background-size: cover;
+            color: #fff;
             font-family: Arial, sans-serif;
+            display:flex;
         }
+
+        /* Add a dark overlay for better text visibility on the background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            
+            background: rgba(0, 0, 0, 0.7);
+            z-index: -1;
+        }
+
+        html, body {
+            height:100%
+        }
+        .page-container {
+            position: relative;
+            max-width:978px;
+            width: 100%;
+            min-height:100%;
+            background:rgb(240, 240, 240) url(http://www.waldorfteacherresources.com/img/lady-sprite.jpg) repeat;
+        }
+        .main-content {
+            width: auto;
+            background: transparent;
+            overflow:visible;
+}
+
 
         /* Add some padding to the container */
         .container {
@@ -33,7 +63,7 @@
 
         /* Style the header */
         header {
-            background-color: #333;
+            background-color: #000;
             color: #fff;
             text-align: center;
             padding: 10px 0;
@@ -46,7 +76,7 @@
 
         /* Style the footer */
         footer {
-            background-color: #333;
+            background-color: #000;
             color: #fff;
             text-align: center;
             padding: 10px 0;
@@ -54,24 +84,42 @@
             bottom: 0;
             width: 100%;
         }
+
+        .image-flexbox {
+            display: flex;
+            flex-direction: column; /* Display images vertically */
+            align-items: center;
+            gap: 10px; /* Add some spacing between images */
+        }
+
+        .image-flexbox img {
+            width: 100%; /* Make images fill the width of the container */
+            max-width: 400px; /* Set a maximum width for images */
+            height: auto; /* Maintain aspect ratio */
+        }
     </style>
 </head>
 
 <body>
-    <header>
-        <h1>Your Website Name</h1>
-    </header>
+    
 
     <div class="container">
         <main>
-            <h2>Welcome to Your Website!</h2>
-            <p>This is a basic HTML and CSS template for your webpage. Feel free to customize it to suit your needs.</p>
+            <h1>Gosling Tribute</h1>
+            <div class="image-flexbox">
+                <img src="images/ken.jpg" alt="Image 2">
+                
+                
+            </div>
+            <p>More flex stuff I cant put in cus tiny host only allows 3MBs</p>
         </main>
     </div>
-
-    <footer>
-        
-    </footer>
+    <script>
+        // JavaScript to handle scrolling within the container
+        document.querySelector('.container').addEventListener('scroll', function() {
+            document.body.style.backgroundPositionY = -this.scrollTop + 'px';
+        });
+    </script>
 </body>
 
 </html>
